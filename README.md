@@ -148,3 +148,4 @@ Edit `src/data/defaultProjects.ts`:
 
 ## 📄 License
 MIT License. Built with ❤️ for showcasing creative developer projects.
+# project-vault
