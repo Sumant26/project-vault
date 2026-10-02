@@ -1,0 +1,70 @@
+:root {
+  /* Cozy Warm Dusk (Default Theme) */
+  --bg-primary: #121217;
+  --bg-secondary: #1a1a22;
+  --bg-card: rgba(28, 28, 36, 0.75);
+  --bg-card-hover: rgba(38, 38, 48, 0.85);
+  --bg-input: #15151b;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(245, 158, 11, 0.4);
+  
+  --text-primary: #f4f4f6;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  
+  --accent-amber: #f59e0b;
+  --accent-amber-glow: rgba(245, 158, 11, 0.25);
+  --accent-warm-rose: #f43f5e;
+  --accent-forest: #10b981;
+  --accent-indigo: #6366f1;
+
+  --badge-live-bg: rgba(16, 185, 129, 0.15);
+  --badge-live-text: #34d399;
+  --badge-live-dot: #10b981;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 30px rgba(245, 158, 11, 0.12);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='cozy-espresso'] {
+  --bg-primary: #15110e;
+  --bg-secondary: #201a16;
+  --bg-card: rgba(36, 28, 24, 0.8);
+  --bg-card-hover: rgba(48, 38, 32, 0.9);
+  --bg-input: #1a1410;
+  --border-subtle: rgba(255, 235, 215, 0.08);
+  --border-active: rgba(217, 119, 6, 0.5);
+  --text-primary: #faede6;
+  --text-secondary: #b8aba2;
+  --text-muted: #857870;
+  --accent-amber: #d97706;
+  --accent-amber-glow: rgba(217, 119, 6, 0.25);
+}
+
+[data-theme='deep-forest'] {
+  --bg-primary: #0e1614;
+  --bg-secondary: #14221e;
+  --bg-card: rgba(22, 36, 32, 0.8);
+  --bg-card-hover: rgba(30, 48, 42, 0.9);
+  --bg-input: #101c18;
+  --border-subtle: rgba(220, 255, 240, 0.08);
+  --border-active: rgba(16, 185, 129, 0.5);
+  --text-primary: #e6faf2;
+  --text-secondary: #a2b8b0;
+  --text-muted: #6e857d;
+  --accent-amber: #10b981;
+  --accent-amber-glow: rgba(16, 185, 129, 0.25);
+}
