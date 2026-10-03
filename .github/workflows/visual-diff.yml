@@ -25,7 +25,7 @@ jobs:
         run: npm ci
 
       - name: Install Playwright Browsers with OS Dependencies
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium webkit
 
       - name: Run Pixel-by-Pixel Snapshot Tests
         run: npx playwright test

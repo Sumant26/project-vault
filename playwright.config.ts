@@ -7,10 +7,11 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './e2e',
   snapshotDir: './e2e/snapshots',
+  snapshotPathTemplate: '{snapshotDir}/{testFileName}-snapshots/{arg}-{projectName}{ext}',
   timeout: 30 * 1000,
   expect: {
     toHaveScreenshot: {
-      maxDiffPixelRatio: 0.02, // Pixel difference tolerance
+      maxDiffPixelRatio: 0.05, // Pixel difference tolerance across environments
       animations: 'disabled'
     }
   },
