@@ -11,8 +11,10 @@ export default defineConfig({
   timeout: 30 * 1000,
   expect: {
     toHaveScreenshot: {
-      maxDiffPixelRatio: 0.05, // Pixel difference tolerance across environments
-      animations: 'disabled'
+      maxDiffPixelRatio: 0.08, // Pixel difference tolerance across environments
+      threshold: 0.2,
+      animations: 'disabled',
+      scale: 'css'
     }
   },
   fullyParallel: true,

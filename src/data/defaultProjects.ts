@@ -38,24 +38,6 @@ export const DEFAULT_PROJECTS: Project[] = [
     createdAt: '2026-09-24'
   },
   {
-    id: 'job-tracker-enterprise',
-    title: 'Job Tracker Enterprise',
-    tagline: 'Kanban-based career pipeline & interview intelligence CRM.',
-    description: 'Full-featured enterprise job application management board featuring automated follow-up reminders, salary negotiation calculator, and interview notes generator.',
-    vercelUrl: 'https://job-tracker-enterprise.vercel.app',
-    githubUrl: 'https://github.com/example/job-tracker-enterprise',
-    category: 'Full-Stack',
-    tags: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind'],
-    status: 'live',
-    featured: false,
-    themeGradient: 'linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(6, 182, 212, 0.25))',
-    metrics: [
-      { label: 'Lighthouse Score', value: '98/100' },
-      { label: 'State Sync', value: 'Instant' }
-    ],
-    createdAt: '2026-08-17'
-  },
-  {
     id: 'gramophone-player-v2',
     title: 'Gramophone Player v2',
     tagline: 'Lo-Fi vinyl audio workstation with analog warmth DSP.',
@@ -72,24 +54,6 @@ export const DEFAULT_PROJECTS: Project[] = [
       { label: 'Sound Engine', value: 'WebAudio API' }
     ],
     createdAt: '2026-09-29'
-  },
-  {
-    id: 'drift-ai-assistant',
-    title: 'Drift AI Assistant',
-    tagline: 'Autonomous developer assistant with local streaming LLM.',
-    description: 'A sleek desktop-style AI productivity copilot capable of synthesizing documentation, generating code scaffolds, and summarizing Git diffs with streaming response UI.',
-    vercelUrl: 'https://drift-ai-assistant.vercel.app',
-    githubUrl: 'https://github.com/example/drift-ai-assistant',
-    category: 'AI / ML',
-    tags: ['Next.js 14', 'Groq SDK', 'Llama 3', 'Radix UI', 'Vercel AI'],
-    status: 'live',
-    featured: false,
-    themeGradient: 'linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(217, 70, 239, 0.25))',
-    metrics: [
-      { label: 'Tokens/sec', value: '140 tok/s' },
-      { label: 'Model', value: 'Llama 3 70B' }
-    ],
-    createdAt: '2026-09-15'
   },
   {
     id: 'tiny-isle',

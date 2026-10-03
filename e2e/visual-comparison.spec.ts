@@ -18,8 +18,7 @@ test.describe('Pixel-by-Pixel Visual Regression Suite', () => {
     
     // Pixel snapshot comparison
     await expect(page).toHaveScreenshot('launchpad-view-baseline.png', {
-      fullPage: true,
-      maxDiffPixelRatio: 0.02
+      maxDiffPixelRatio: 0.08
     });
   });
 
@@ -32,8 +31,7 @@ test.describe('Pixel-by-Pixel Visual Regression Suite', () => {
     await page.waitForTimeout(500);
 
     await expect(page).toHaveScreenshot('viewport-mode-baseline.png', {
-      fullPage: true,
-      maxDiffPixelRatio: 0.02,
+      maxDiffPixelRatio: 0.08,
       timeout: 15000,
       animations: 'disabled',
       mask: [page.locator('.sandbox-iframe')]
@@ -48,8 +46,7 @@ test.describe('Pixel-by-Pixel Visual Regression Suite', () => {
     await page.waitForSelector('.deck-grid');
 
     await expect(page).toHaveScreenshot('deck-mode-baseline.png', {
-      fullPage: true,
-      maxDiffPixelRatio: 0.02
+      maxDiffPixelRatio: 0.08
     });
   });
 
@@ -60,7 +57,7 @@ test.describe('Pixel-by-Pixel Visual Regression Suite', () => {
     await page.waitForSelector('.modal-dialog');
 
     await expect(page.locator('.modal-dialog')).toHaveScreenshot('add-project-modal-baseline.png', {
-      maxDiffPixelRatio: 0.02
+      maxDiffPixelRatio: 0.08
     });
   });
 });

@@ -35,7 +35,7 @@ interface ProjectContextType {
   allTags: string[];
 }
 
-const STORAGE_KEY = 'project_vault_user_data_v2';
+const STORAGE_KEY = 'project_vault_user_data_v3';
 const THEME_STORAGE_KEY = 'project_vault_theme_v2';
 
 const ProjectContext = createContext<ProjectContextType | undefined>(undefined);
