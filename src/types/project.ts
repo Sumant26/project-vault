@@ -12,7 +12,15 @@ export type ViewMode = 'launchpad' | 'viewport' | 'deck';
 
 export type DeviceFrame = 'desktop' | 'tablet' | 'mobile';
 
-export type CozyTheme = 'warm-dusk' | 'cozy-espresso' | 'deep-forest';
+export type CozyTheme = 
+  | 'obsidian-indigo'
+  | 'midnight-emerald'
+  | 'nordic-cyan'
+  | 'tokyo-night'
+  | 'clean-minimal'
+  | 'warm-dusk'
+  | 'cozy-espresso'
+  | 'deep-forest';
 
 export interface Project {
   id: string;

@@ -35,8 +35,8 @@ interface ProjectContextType {
   allTags: string[];
 }
 
-const STORAGE_KEY = 'project_vault_user_data_v1';
-const THEME_STORAGE_KEY = 'project_vault_theme_v1';
+const STORAGE_KEY = 'project_vault_user_data_v2';
+const THEME_STORAGE_KEY = 'project_vault_theme_v2';
 
 const ProjectContext = createContext<ProjectContextType | undefined>(undefined);
 
@@ -60,7 +60,7 @@ export const ProjectProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [activeProjectId, setActiveProjectId] = useState<string>(DEFAULT_PROJECTS[0]?.id || '');
   const [activeDevice, setActiveDevice] = useState<DeviceFrame>('desktop');
   const [theme, setThemeState] = useState<CozyTheme>(() => {
-    return (localStorage.getItem(THEME_STORAGE_KEY) as CozyTheme) || 'warm-dusk';
+    return (localStorage.getItem(THEME_STORAGE_KEY) as CozyTheme) || 'obsidian-indigo';
   });
 
   const [filter, setFilter] = useState<FilterState>({

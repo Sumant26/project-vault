@@ -26,15 +26,10 @@ export const DeckView: React.FC = () => {
       {filteredProjects.map((project) => (
         <div key={project.id} className="deck-card">
           {/* Card Visual Header */}
-          <div
-            className="deck-visual-header"
-            style={{
-              background: project.themeGradient || 'linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(99, 102, 241, 0.2))'
-            }}
-          >
-            <div style={{ textAlign: 'center', zIndex: 2, padding: '1rem' }}>
-              <Layers size={36} style={{ color: 'var(--accent-amber)', opacity: 0.85, margin: '0 auto 0.5rem auto' }} />
-              <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+          <div className="deck-visual-header">
+            <div style={{ textAlign: 'center', padding: '1rem' }}>
+              <Layers size={28} style={{ color: 'var(--accent-amber)', opacity: 0.85, margin: '0 auto 0.4rem auto' }} />
+              <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
                 {project.category}
               </div>
             </div>

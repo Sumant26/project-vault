@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useProjects } from '../context/ProjectContext';
 import { 
   Compass, 
@@ -10,7 +10,7 @@ import {
   Download, 
   Palette, 
   Keyboard,
-  Sparkles
+  Check
 } from 'lucide-react';
 import { ProjectCategory, CozyTheme } from '../types/project';
 
@@ -21,6 +21,25 @@ const CATEGORIES: ProjectCategory[] = [
   'Frontend',
   '3D / Creative',
   'Utility'
+];
+
+interface ThemeOption {
+  id: CozyTheme;
+  name: string;
+  tag: string;
+  bg: string;
+  accent: string;
+}
+
+const THEME_OPTIONS: ThemeOption[] = [
+  { id: 'obsidian-indigo', name: 'Obsidian & Indigo', tag: 'Linear Dark', bg: '#0b0f17', accent: '#6366f1' },
+  { id: 'midnight-emerald', name: 'Midnight Navy', tag: 'Bio Emerald', bg: '#060d17', accent: '#10b981' },
+  { id: 'nordic-cyan', name: 'Nordic Charcoal', tag: 'Ice Cyan', bg: '#111113', accent: '#0ea5e9' },
+  { id: 'tokyo-night', name: 'Tokyo Night', tag: 'Neon Violet', bg: '#120f1d', accent: '#a855f7' },
+  { id: 'clean-minimal', name: 'Clean Minimal', tag: 'Apple Light', bg: '#f8fafc', accent: '#2563eb' },
+  { id: 'warm-dusk', name: 'Warm Linen', tag: 'Paper Classic', bg: '#faf7f2', accent: '#c85a46' },
+  { id: 'cozy-espresso', name: 'Cozy Espresso', tag: 'Dark Cocoa', bg: '#171310', accent: '#d97706' },
+  { id: 'deep-forest', name: 'Deep Forest', tag: 'Botanical Sage', bg: '#0d1712', accent: '#10b981' },
 ];
 
 export const Header: React.FC = () => {
@@ -39,11 +58,22 @@ export const Header: React.FC = () => {
     setIsShortcutsModalOpen
   } = useProjects();
 
-  const toggleTheme = () => {
-    const themes: CozyTheme[] = ['warm-dusk', 'cozy-espresso', 'deep-forest'];
-    const nextIndex = (themes.indexOf(theme) + 1) % themes.length;
-    setTheme(themes[nextIndex]);
-  };
+  const [isThemeMenuOpen, setIsThemeMenuOpen] = useState(false);
+  const themeMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (themeMenuRef.current && !themeMenuRef.current.contains(e.target as Node)) {
+        setIsThemeMenuOpen(false);
+      }
+    };
+    if (isThemeMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isThemeMenuOpen]);
+
+  const currentThemeObj = THEME_OPTIONS.find(t => t.id === theme) || THEME_OPTIONS[0];
 
   return (
     <header className="header-wrapper">
@@ -57,7 +87,6 @@ export const Header: React.FC = () => {
             <div className="brand-title">
               <span>Project Vault</span>
               <span className="brand-badge">
-                <Sparkles size={11} style={{ display: 'inline', marginRight: 3 }} />
                 {projects.length} Apps
               </span>
             </div>
@@ -108,14 +137,55 @@ export const Header: React.FC = () => {
 
         {/* Action Controls */}
         <div className="header-actions">
-          <button
-            className="icon-btn"
-            onClick={toggleTheme}
-            title={`Current Theme: ${theme}. Click to switch theme.`}
-            aria-label="Toggle cozy theme"
-          >
-            <Palette size={18} />
-          </button>
+          {/* Theme Selector Popover */}
+          <div className="theme-selector-container" ref={themeMenuRef}>
+            <button
+              className={`icon-btn theme-btn-trigger ${isThemeMenuOpen ? 'active' : ''}`}
+              onClick={() => setIsThemeMenuOpen(prev => !prev)}
+              title={`Active Theme: ${currentThemeObj.name} (${currentThemeObj.tag}). Click to change palette.`}
+              aria-label="Select Theme Palette"
+            >
+              <Palette size={18} />
+              <span 
+                className="theme-active-dot" 
+                style={{ background: currentThemeObj.accent }}
+              />
+            </button>
+
+            {isThemeMenuOpen && (
+              <div className="theme-dropdown-menu">
+                <div className="theme-dropdown-header">
+                  <span>Color Theme</span>
+                  <span className="theme-count-tag">{THEME_OPTIONS.length} palettes</span>
+                </div>
+                <div className="theme-list">
+                  {THEME_OPTIONS.map((t) => {
+                    const isSelected = theme === t.id;
+                    return (
+                      <button
+                        key={t.id}
+                        className={`theme-option-item ${isSelected ? 'selected' : ''}`}
+                        onClick={() => {
+                          setTheme(t.id);
+                          setIsThemeMenuOpen(false);
+                        }}
+                      >
+                        <div className="theme-swatch">
+                          <span className="swatch-bg" style={{ background: t.bg }} />
+                          <span className="swatch-accent" style={{ background: t.accent }} />
+                        </div>
+                        <div className="theme-meta">
+                          <span className="theme-name">{t.name}</span>
+                          <span className="theme-tag">{t.tag}</span>
+                        </div>
+                        {isSelected && <Check size={14} className="theme-check-icon" />}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
           <button
             className="icon-btn"
             onClick={() => setIsShortcutsModalOpen(true)}

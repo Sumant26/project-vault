@@ -25,8 +25,9 @@ test.describe('Pixel-by-Pixel Visual Regression Suite', () => {
 
   test('Viewport View interactive layout matches baseline', async ({ page }) => {
     await page.goto('/');
+    await page.waitForLoadState('networkidle');
     // Switch to Viewport mode
-    await page.click('button:has-text("Viewport")');
+    await page.locator('button:has-text("Viewport")').click();
     await page.waitForSelector('.viewport-layout');
     await page.waitForTimeout(500);
 
@@ -41,8 +42,9 @@ test.describe('Pixel-by-Pixel Visual Regression Suite', () => {
 
   test('Deck View showcase cards match baseline', async ({ page }) => {
     await page.goto('/');
+    await page.waitForLoadState('networkidle');
     // Switch to Deck mode
-    await page.click('button:has-text("Deck")');
+    await page.locator('button:has-text("Deck")').click();
     await page.waitForSelector('.deck-grid');
 
     await expect(page).toHaveScreenshot('deck-mode-baseline.png', {
@@ -53,7 +55,8 @@ test.describe('Pixel-by-Pixel Visual Regression Suite', () => {
 
   test('Add Project Modal appearance matches design tokens', async ({ page }) => {
     await page.goto('/');
-    await page.click('button:has-text("Add Project")');
+    await page.waitForLoadState('networkidle');
+    await page.locator('button:has-text("Add Project")').click();
     await page.waitForSelector('.modal-dialog');
 
     await expect(page.locator('.modal-dialog')).toHaveScreenshot('add-project-modal-baseline.png', {

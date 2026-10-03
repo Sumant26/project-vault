@@ -28,9 +28,6 @@ export const LaunchpadView: React.FC = () => {
         <div
           key={project.id}
           className="launchpad-tile"
-          style={{
-            '--tile-gradient': project.themeGradient || 'linear-gradient(90deg, var(--accent-amber), #f43f5e)'
-          } as React.CSSProperties}
         >
           <div>
             <div className="tile-top">

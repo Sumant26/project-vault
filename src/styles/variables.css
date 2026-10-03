@@ -1,70 +1,265 @@
 :root {
-  /* Cozy Warm Dusk (Default Theme) */
-  --bg-primary: #121217;
-  --bg-secondary: #1a1a22;
-  --bg-card: rgba(28, 28, 36, 0.75);
-  --bg-card-hover: rgba(38, 38, 48, 0.85);
-  --bg-input: #15151b;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-active: rgba(245, 158, 11, 0.4);
+  /* =========================================================
+     DEFAULT / BASE TOKENS (Obsidian & Electric Indigo)
+     ========================================================= */
+  --bg-primary: #0b0f17;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1a2234;
+  --bg-card: #111827;
+  --bg-card-hover: #162033;
+  --bg-input: #0e1422;
+  --bg-glass: rgba(11, 15, 23, 0.88);
   
-  --text-primary: #f4f4f6;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
+  --border-subtle: #1e293b;
+  --border-medium: #334155;
+  --border-active: #6366f1;
+  --border-glow: rgba(99, 102, 241, 0.28);
   
-  --accent-amber: #f59e0b;
-  --accent-amber-glow: rgba(245, 158, 11, 0.25);
-  --accent-warm-rose: #f43f5e;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-tertiary: #475569;
+  
+  --accent-amber: #6366f1; /* Electric Indigo */
+  --accent-amber-hover: #4f46e5;
+  --accent-amber-glow: rgba(99, 102, 241, 0.28);
+  --accent-gold: #8b5cf6; /* Electric Violet */
+  --accent-gold-glow: rgba(139, 92, 246, 0.25);
+  --accent-warm-rose: #ec4899;
   --accent-forest: #10b981;
   --accent-indigo: #6366f1;
+  --accent-caramel: #f59e0b;
 
-  --badge-live-bg: rgba(16, 185, 129, 0.15);
+  --badge-live-bg: rgba(16, 185, 129, 0.14);
   --badge-live-text: #34d399;
   --badge-live-dot: #10b981;
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
-  --shadow-glow: 0 0 30px rgba(245, 158, 11, 0.12);
-  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 2px 8px -1px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 24px -2px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 20px 48px -4px rgba(0, 0, 0, 0.65);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.35);
 
-  --radius-sm: 8px;
+  --radius-xs: 6px;
+  --radius-sm: 10px;
   --radius-md: 14px;
-  --radius-lg: 20px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
   --radius-full: 9999px;
 
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.15s ease;
   --transition-smooth: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-spring: 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* 1. 🌌 Obsidian & Electric Indigo (Linear/Vercel Dark) */
+[data-theme='obsidian-indigo'] {
+  --bg-primary: #0b0f17;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1a2234;
+  --bg-card: #111827;
+  --bg-card-hover: #162033;
+  --bg-input: #0e1422;
+  --bg-glass: rgba(11, 15, 23, 0.88);
+  --border-subtle: #1e293b;
+  --border-medium: #334155;
+  --border-active: #6366f1;
+  --border-glow: rgba(99, 102, 241, 0.28);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-tertiary: #475569;
+  --accent-amber: #6366f1;
+  --accent-amber-hover: #4f46e5;
+  --accent-amber-glow: rgba(99, 102, 241, 0.28);
+  --badge-live-bg: rgba(16, 185, 129, 0.14);
+  --badge-live-text: #34d399;
+  --badge-live-dot: #10b981;
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* 2. 🌊 Midnight Navy & Emerald Mint */
+[data-theme='midnight-emerald'] {
+  --bg-primary: #060d17;
+  --bg-secondary: #0c1626;
+  --bg-tertiary: #132238;
+  --bg-card: #0c1729;
+  --bg-card-hover: #12213a;
+  --bg-input: #08111e;
+  --bg-glass: rgba(6, 13, 23, 0.9);
+  --border-subtle: #162942;
+  --border-medium: #223f66;
+  --border-active: #10b981;
+  --border-glow: rgba(16, 185, 129, 0.25);
+  --text-primary: #f1f5f9;
+  --text-secondary: #93c5fd;
+  --text-muted: #6282a5;
+  --text-tertiary: #44607e;
+  --accent-amber: #10b981; /* Mint Emerald */
+  --accent-amber-hover: #059669;
+  --accent-amber-glow: rgba(16, 185, 129, 0.3);
+  --badge-live-bg: rgba(16, 185, 129, 0.18);
+  --badge-live-text: #6ee7b7;
+  --badge-live-dot: #10b981;
+  --shadow-card: 0 4px 20px rgba(0, 8, 20, 0.5);
+}
+
+/* 3. ❄️ Nordic Charcoal & Ice Cyan */
+[data-theme='nordic-cyan'] {
+  --bg-primary: #111113;
+  --bg-secondary: #18181b;
+  --bg-tertiary: #27272a;
+  --bg-card: #18181b;
+  --bg-card-hover: #222226;
+  --bg-input: #141416;
+  --bg-glass: rgba(17, 17, 19, 0.9);
+  --border-subtle: #27272a;
+  --border-medium: #3f3f46;
+  --border-active: #0ea5e9;
+  --border-glow: rgba(14, 165, 233, 0.25);
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --text-tertiary: #52525b;
+  --accent-amber: #0ea5e9; /* Sky Cyan */
+  --accent-amber-hover: #0284c7;
+  --accent-amber-glow: rgba(14, 165, 233, 0.28);
+  --badge-live-bg: rgba(14, 165, 233, 0.15);
+  --badge-live-text: #7dd3fc;
+  --badge-live-dot: #38bdf8;
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+/* 4. 🌆 Tokyo Night / Neon Dusk */
+[data-theme='tokyo-night'] {
+  --bg-primary: #120f1d;
+  --bg-secondary: #1a162b;
+  --bg-tertiary: #26203d;
+  --bg-card: #1a162b;
+  --bg-card-hover: #231e3b;
+  --bg-input: #151124;
+  --bg-glass: rgba(18, 15, 29, 0.9);
+  --border-subtle: #2d264a;
+  --border-medium: #473c73;
+  --border-active: #a855f7;
+  --border-glow: rgba(168, 85, 247, 0.3);
+  --text-primary: #fdf4ff;
+  --text-secondary: #c084fc;
+  --text-muted: #8b7ca6;
+  --text-tertiary: #675b80;
+  --accent-amber: #a855f7; /* Neon Violet */
+  --accent-amber-hover: #9333ea;
+  --accent-amber-glow: rgba(168, 85, 247, 0.3);
+  --badge-live-bg: rgba(244, 63, 94, 0.18);
+  --badge-live-text: #fda4af;
+  --badge-live-dot: #f43f5e;
+  --shadow-card: 0 4px 22px rgba(10, 5, 20, 0.55);
+}
+
+/* 5. ☀️ Clean Minimalist Light (Apple / Stripe aesthetic) */
+[data-theme='clean-minimal'] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-tertiary: #e2e8f0;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fcfdfe;
+  --bg-input: #ffffff;
+  --bg-glass: rgba(248, 250, 252, 0.92);
+  --border-subtle: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-active: #2563eb;
+  --border-glow: rgba(37, 99, 235, 0.18);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-tertiary: #cbd5e1;
+  --accent-amber: #2563eb; /* Royal Blue */
+  --accent-amber-hover: #1d4ed8;
+  --accent-amber-glow: rgba(37, 99, 235, 0.2);
+  --badge-live-bg: #ecfdf5;
+  --badge-live-text: #059669;
+  --badge-live-dot: #10b981;
+  --shadow-card: 0 2px 10px rgba(15, 23, 42, 0.05);
+}
+
+/* 6. 📜 Warm Dusk & Linen (Original Paper) */
+[data-theme='warm-dusk'] {
+  --bg-primary: #faf7f2;
+  --bg-secondary: #f3ede4;
+  --bg-tertiary: #ebe3d7;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fefdfb;
+  --bg-input: #ffffff;
+  --bg-glass: rgba(250, 247, 242, 0.92);
+  --border-subtle: #e8ded2;
+  --border-medium: #d8cbbe;
+  --border-active: #c85a46;
+  --border-glow: rgba(200, 90, 70, 0.2);
+  --text-primary: #2c231e;
+  --text-secondary: #6e5c50;
+  --text-muted: #9c8a7c;
+  --text-tertiary: #bcaa9c;
+  --accent-amber: #c85a46;
+  --accent-amber-hover: #b44c39;
+  --accent-amber-glow: rgba(200, 90, 70, 0.18);
+  --badge-live-bg: #eaf5ee;
+  --badge-live-text: #2f6b4a;
+  --badge-live-dot: #3e8a60;
+  --shadow-card: 0 2px 8px rgba(44, 35, 30, 0.04);
+}
+
+/* 7. ☕ Cozy Espresso & Amber */
 [data-theme='cozy-espresso'] {
-  --bg-primary: #15110e;
-  --bg-secondary: #201a16;
-  --bg-card: rgba(36, 28, 24, 0.8);
-  --bg-card-hover: rgba(48, 38, 32, 0.9);
-  --bg-input: #1a1410;
-  --border-subtle: rgba(255, 235, 215, 0.08);
-  --border-active: rgba(217, 119, 6, 0.5);
-  --text-primary: #faede6;
-  --text-secondary: #b8aba2;
-  --text-muted: #857870;
+  --bg-primary: #171310;
+  --bg-secondary: #211b17;
+  --bg-tertiary: #2c241f;
+  --bg-card: #211b17;
+  --bg-card-hover: #29221d;
+  --bg-input: #1b1613;
+  --bg-glass: rgba(23, 19, 16, 0.92);
+  --border-subtle: #332b24;
+  --border-medium: #4a3e35;
+  --border-active: #d97706;
+  --border-glow: rgba(217, 119, 6, 0.25);
+  --text-primary: #f6eee5;
+  --text-secondary: #c2b1a1;
+  --text-muted: #8c7b6c;
+  --text-tertiary: #5d4f43;
   --accent-amber: #d97706;
+  --accent-amber-hover: #f59e0b;
   --accent-amber-glow: rgba(217, 119, 6, 0.25);
+  --badge-live-bg: rgba(62, 138, 96, 0.18);
+  --badge-live-text: #6ee7b7;
+  --badge-live-dot: #10b981;
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 
+/* 8. 🌲 Deep Botanical Forest */
 [data-theme='deep-forest'] {
-  --bg-primary: #0e1614;
-  --bg-secondary: #14221e;
-  --bg-card: rgba(22, 36, 32, 0.8);
-  --bg-card-hover: rgba(30, 48, 42, 0.9);
-  --bg-input: #101c18;
-  --border-subtle: rgba(220, 255, 240, 0.08);
-  --border-active: rgba(16, 185, 129, 0.5);
-  --text-primary: #e6faf2;
-  --text-secondary: #a2b8b0;
-  --text-muted: #6e857d;
+  --bg-primary: #0d1712;
+  --bg-secondary: #13241c;
+  --bg-tertiary: #1b3327;
+  --bg-card: #13241c;
+  --bg-card-hover: #193025;
+  --bg-input: #0f1c16;
+  --bg-glass: rgba(13, 23, 18, 0.92);
+  --border-subtle: #1e362a;
+  --border-medium: #2e5340;
+  --border-active: #10b981;
+  --border-glow: rgba(16, 185, 129, 0.25);
+  --text-primary: #ecfdf5;
+  --text-secondary: #a7f3d0;
+  --text-muted: #6ee7b7;
+  --text-tertiary: #34d399;
   --accent-amber: #10b981;
+  --accent-amber-hover: #059669;
   --accent-amber-glow: rgba(16, 185, 129, 0.25);
+  --badge-live-bg: rgba(16, 185, 129, 0.2);
+  --badge-live-text: #6ee7b7;
+  --badge-live-dot: #10b981;
+  --shadow-card: 0 4px 18px rgba(0, 0, 0, 0.4);
 }
